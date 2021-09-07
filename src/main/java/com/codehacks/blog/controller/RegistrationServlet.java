@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
  * @author Rhume
  */
 @WebServlet(name = "RegistrationServlet", urlPatterns = {"/registration"})
@@ -22,8 +21,7 @@ public class RegistrationServlet extends HttpServlet {
     DataService dataService;
     
     private Registration registeredUser;
-    
-    
+        
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -44,25 +42,13 @@ public class RegistrationServlet extends HttpServlet {
         } else {
             // Request user enter same password
         }
-        
-        
-    
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    
-        processRequest(request, response);
-        
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        processRequest(request, response);
-        
+        processRequest(request, response);        
     }
 
     @Override

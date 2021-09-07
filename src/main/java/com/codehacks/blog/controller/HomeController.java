@@ -26,7 +26,7 @@ public class HomeController {
     
     @PostConstruct
     public void initialize() {
-        String username = "Sally";
+        String username = "Tom";
         this.currentUser = dataService.getUser(username);
         this.currentUser.ifPresent(user -> {
             this.currentQualities = dataService.getQualities(user);
