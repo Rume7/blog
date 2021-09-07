@@ -6,6 +6,11 @@ import javax.enterprise.context.Initialized;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
+/**
+ * @author Rhume
+ * @date Sept 7, 2021
+ */
+
 @ApplicationScoped
 public class DataInitializer {
     

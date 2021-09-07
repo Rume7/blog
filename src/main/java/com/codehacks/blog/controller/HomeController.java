@@ -1,5 +1,9 @@
 package com.codehacks.blog.controller;
 
+/**
+ * @author Rhume
+ * @date Sept 7, 2021
+ */
 import com.codehacks.blog.dao.DataService;
 import com.codehacks.blog.entities.Quality;
 import com.codehacks.blog.entities.User;

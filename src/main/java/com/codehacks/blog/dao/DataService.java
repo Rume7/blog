@@ -1,13 +1,20 @@
 package com.codehacks.blog.dao;
 
 import com.codehacks.blog.entities.Quality;
+import com.codehacks.blog.entities.Registration;
 import com.codehacks.blog.entities.User;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+
+/**
+ * @author Rhume
+ * @date Sept 7, 2021
+ */
 
 @ApplicationScoped
 public class DataService {
@@ -49,5 +56,14 @@ public class DataService {
         return em.createNamedQuery("Quality.byUser", Quality.class)
                 .setParameter("userId", user.getId())
                 .getResultList();
+    }
+    
+    @Transactional
+    public Registration registerBlogger(String username, String firstname, String lastname, 
+            String email, String password, Date dateCreated) {
+        Registration registeredUser = new Registration(username, firstname, lastname, email, password, dateCreated);
+        em.persist(registeredUser);
+        em.flush();
+        return registeredUser;        
     }
 }
