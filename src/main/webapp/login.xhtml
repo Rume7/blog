@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view>
+        <h:head>
+            <title>Login Page</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </h:head>
+        <h:body>
+            
+            <p:outputPanel>
+                <div class="ui-g">
+                    <div class="uig-4">
+                        
+                    </div>
+                    <h3 style="text-align: center">Login with your credentials</h3>
+                    <h:form id="login">
+                        <p:messages id="messages" globalOnly="true" />
+                        <h:panelGrid columns="3" cellpadding="3" style="margin: 0 auto">
+                            <p:outputLabel for="username" value="Username" />
+                            <p:inputText id="username" value="#{loginController.username}" />
+                            <p:message for="username" />
+                            
+                            <p:outputLabel for="password" value="Password" />
+                            <p:inputText id="password" type="password" value="#{loginController.password}" />
+                            <p:message for="password" />
+                            
+                            <p:commandButton id="submit" update="@form" value="Login"
+                                             action="#{loginController.execute}" ajax="false" />
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+            </p:outputPanel>
+            
+        </h:body>
+    </f:view>
+</html>

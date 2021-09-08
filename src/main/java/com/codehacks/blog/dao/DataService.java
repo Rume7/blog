@@ -7,8 +7,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 import javax.transaction.Transactional;
 
 /**
@@ -22,9 +24,12 @@ public class DataService {
     @PersistenceContext(unitName = "blogappPU")
     EntityManager em;
 
+    @Inject
+    Pbkdf2PasswordHash passwordHasher;
+    
     @Transactional
     public User createUser(String email, String username, String password, String group) {
-        User newUser = new User(email, username, password, group);
+        User newUser = new User(email, username, passwordHasher.generate(password.toCharArray()), group);
         em.persist(newUser);
         em.flush();
         return newUser;
